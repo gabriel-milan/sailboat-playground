@@ -85,6 +85,10 @@ class Boat:
 
     def apply_angular_acceleration(self, accel: float):
         self._angular_speed += accel * constants.time_delta
+        if self._angular_speed > 360 / constants.time_delta:
+            self._angular_speed = 360 / constants.time_delta
+        if self._angular_speed < -360 / constants.time_delta:
+            self._angular_speed = -360 / constants.time_delta
 
     def execute(self):
         self._currentTime += constants.time_delta
@@ -101,3 +105,6 @@ class Boat:
 
     def set_heading(self, heading):
         self._heading = heading
+
+    def set_position(self, position):
+        self._position = position

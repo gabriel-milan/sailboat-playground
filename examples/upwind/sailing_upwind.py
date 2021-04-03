@@ -40,6 +40,7 @@ if __name__ == "__main__":
         "boats/sample_boat.json",
         "environments/playground.json",
         boat_heading=140,
+        boat_position=np.array([0, -300]),
         debug=False
     )
     target_position = np.array([0, 400])

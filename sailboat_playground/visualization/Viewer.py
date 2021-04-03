@@ -32,6 +32,10 @@ class Viewer ():
         self._speed_text = pyglet.text.Label(
             text="N/A m/s", x=SPEED_X, y=10, anchor_x="center", anchor_y="center", batch=self._main_batch, font_size=15)
 
+        POSITION_X = 700
+        self._position_text = pyglet.text.Label(
+            text="(nan, nan)", x=POSITION_X, y=10, anchor_x="center", anchor_y="center", batch=self._main_batch, font_size=15)
+
         self._sailboat = None
         self._objects = []
 
@@ -72,6 +76,8 @@ class Viewer ():
                 np.linalg.norm(state["wind_speed"]))
             self._speed_text.text = "{:.1f}m/s".format(
                 np.linalg.norm(state["boat_speed"]))
+            self._position_text.text = "Pos: ({:.2f}, {:.2f})".format(
+                state["boat_position"][0], state["boat_position"][1])
             self._step += 1
 
     def run(self, state_list, simulation_speed=100):

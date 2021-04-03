@@ -9,9 +9,10 @@ from sailboat_playground.engine.Environment import Environment
 
 
 class Manager:
-    def __init__(self, boat_config: str, env_config: str, foils_dir: str = "foils/", debug: bool = False, boat_heading: float = 90):
+    def __init__(self, boat_config: str, env_config: str, foils_dir: str = "foils/", debug: bool = False, boat_heading: float = 90, boat_position: np.ndarray = np.array([0, 0])):
         self._boat = Boat(boat_config, foils_dir)
         self._boat.set_heading(boat_heading)
+        self._boat.set_position(boat_position)
         self._env = Environment(env_config)
         self._apparent_wind_speed = 0
         self._apparent_wind_direction = 0
