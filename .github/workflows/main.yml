@@ -23,37 +23,8 @@ jobs:
       - name: Install dependencies
         run: pip install wheel && pip install --prefer-binary -r requirements.txt
 
-  tests:
-    needs: before
-    name: ${{ matrix.os }}${{ matrix.arch }} - Python ${{ matrix.python-version }} - tests
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        arch: [x64]
-        python-version: ["3.6.x", "3.7.x", "3.8.x", "3.9.x"]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-          architecture: ${{ matrix.arch }}
-      - name: Install dependencies
-        run: pip install wheel && pip install --prefer-binary -r requirements.txt -r test_requirements.txt && apt-get update -y && apt-get install -y freeglut3-dev
-      - name: Build
-        run: |
-          python setup.py install
-      - name: Run tests
-        run: |
-          pytest
-      - name: Run coverage
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_API_TOKEN }}
-          verbose: true
   build_and_publish:
-    needs: tests
+    needs: before
     name: Build and publish to PyPI
     runs-on: ubuntu-latest
     steps:
