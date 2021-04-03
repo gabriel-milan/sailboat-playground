@@ -40,7 +40,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: ${{ matrix.arch }}
       - name: Install dependencies
-        run: pip install wheel && pip install --prefer-binary -r requirements.txt -r test_requirements.txt
+        run: pip install wheel && pip install --prefer-binary -r requirements.txt -r test_requirements.txt && apt-get update -y && apt-get install -y freeglut3-dev
       - name: Build
         run: |
           python setup.py install
