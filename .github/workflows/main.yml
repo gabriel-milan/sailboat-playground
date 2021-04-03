@@ -40,7 +40,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: ${{ matrix.arch }}
       - name: Install dependencies
-        run: pip install wheel && pip install --prefer-binary -r requirements.txt
+        run: pip install wheel && pip install --prefer-binary -r requirements.txt -r test_requirements.txt
       - name: Build
         run: |
           python setup.py install
@@ -64,7 +64,7 @@ jobs:
           python-version: "3.8.x"
           architecture: "x64"
       - name: Install dependencies
-        run: pip install wheel && pip install --prefer-binary -r requirements.txt
+        run: pip install wheel && pip install --prefer-binary -r requirements.txt -r test_requirements.txt
       - name: Build source distribution
         run: python setup.py sdist
       - name: Publish latest on PyPI
