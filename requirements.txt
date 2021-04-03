@@ -1,0 +1,4 @@
+numpy
+pyglet==1.5.15
+pandas
+cython
