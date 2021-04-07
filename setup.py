@@ -38,7 +38,7 @@ extensions = [
 
 setup(
     name="sailboat_playground",
-    version="0.1.0",
+    version="0.1.1",
     license="GPL-3.0",
     description="A very simple framework for sailboat simulation and autonomous navigation algorithms development",
     long_description=long_description,
