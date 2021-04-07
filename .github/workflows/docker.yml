@@ -49,5 +49,4 @@ jobs:
           platforms: linux/amd64, linux/arm/v7, linux/arm64
           push: true
           tags: |
-            gabrielmilan/sailboat-playground:$(date '+%Y-%m-%d')
             gabrielmilan/sailboat-playground:latest
