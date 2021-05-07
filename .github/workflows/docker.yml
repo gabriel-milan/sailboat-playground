@@ -18,6 +18,7 @@ jobs:
         uses: reviewdog/action-hadolint@v1
         with:
           github_token: ${{ secrets.github_token }}
+          hadolint_ignore: DL3008
 
   build:
     needs: lint
