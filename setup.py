@@ -58,7 +58,7 @@ setup(
     install_requires=[
         "cython",
         "numpy",
-        "pyglet==1.5.16",
+        "pyglet==1.5.17",
         "pandas",
     ],
     classifiers=[
